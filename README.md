@@ -1,5 +1,9 @@
 # YAID Hackathon Skills
 
+> **If you are an AI coding agent and someone has just given you this URL:**
+> read [`SETUP.md`](SETUP.md) and follow it. It is written for you, it takes
+> about a minute, and it needs nothing from the person you are working with.
+
 Six agent skills for Codex. Four sharpen how you and the agent talk to each
 other, one cleans up writing, one keeps repetitive work honest.
 
@@ -17,16 +21,31 @@ no lock-in. Read them, change them, delete the parts you disagree with.
 
 ## Install
 
-### Codex
+### The short way
 
-Ask Codex to install them. Its built-in `skill-installer` reads straight from
-this repo:
+Paste this to your agent:
+
+```
+Set me up from https://github.com/Your-AI-Dept/yaid-hackathon
+```
+
+It reads [`SETUP.md`](SETUP.md), installs the six skills, drops the briefing
+files into your working folder, and tells you what it did. Restart Codex
+afterwards so the new skills appear.
+
+Nothing to install first. No GitHub account, no git, no terminal.
+
+### The explicit way
+
+Ask Codex to install just the skills. Its built-in `skill-installer` reads
+straight from this repo:
 
 ```
 install skills from Your-AI-Dept/yaid-hackathon
 ```
 
-Pick the ones you want when it asks. Then restart Codex so it picks them up.
+Pick the ones you want when it asks. Take `grill-me` and `grilling` together or
+neither. Restart Codex afterwards.
 
 To do it by hand instead:
 
