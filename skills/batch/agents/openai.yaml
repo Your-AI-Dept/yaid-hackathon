@@ -1,0 +1,3 @@
+interface:
+  display_name: "Batch"
+  short_description: "Run one instruction across many targets"

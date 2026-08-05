@@ -1,0 +1,36 @@
+# NOTICE
+
+This repository bundles skills from more than one author. Attribution and
+licensing for each, so you know exactly what you are downloading.
+
+## skills/grill-me, skills/grilling, skills/handoff, skills/wait-what
+
+Copyright (c) 2026 Matt Pocock
+Source: https://github.com/mattpocock/skills
+License: MIT (full text in LICENSE-mattpocock-skills)
+
+Bundled verbatim, no modifications. The upstream repo is the canonical version
+and gets updates first. Pull from there if you want to track changes.
+
+`grilling` is not in the original request list. It is here because `grill-me`
+is a one-line stub whose entire body is "Run a `/grilling` session." Without
+`grilling` alongside it, `grill-me` does nothing.
+
+## skills/humanizer
+
+Copyright (c) 2026 Anthropic
+Source: the `anthropic-skills` plugin distributed with Claude
+
+Bundled verbatim, no modifications, other than the addition of
+`agents/openai.yaml` so Codex can display it.
+
+Anthropic has not attached an explicit open-source license to this skill file.
+It is redistributed here as provided. If you plan to build on it commercially,
+check with Anthropic first.
+
+## skills/batch
+
+Copyright (c) 2026 Your AI Dept.
+License: MIT (see LICENSE)
+
+Original work. Not a copy of any existing `batch` skill.
