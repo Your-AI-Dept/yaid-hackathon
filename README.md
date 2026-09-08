@@ -4,11 +4,12 @@
 > read [`SETUP.md`](SETUP.md) and follow it. It is written for you, it takes
 > about a minute, and it needs nothing from the person you are working with.
 
-Six agent skills for Codex. Four sharpen how you and the agent talk to each
-other, one cleans up writing, one keeps repetitive work honest.
+Six agent skills for Codex and Claude Code. Four sharpen how you and the agent
+talk to each other, one cleans up writing, one keeps repetitive work honest.
 
 They are plain markdown. No install step beyond copying a folder, no runtime,
-no lock-in. Read them, change them, delete the parts you disagree with.
+no lock-in. Read them, change them, delete the parts you disagree with. The
+same files work in both agents; only the folder they go in differs.
 
 | Skill | What it does |
 |---|---|
@@ -18,6 +19,14 @@ no lock-in. Read them, change them, delete the parts you disagree with.
 | [`wait-what`](skills/wait-what) | "That last message did not land." Forces a re-pitch in plain language |
 | [`humanizer`](skills/humanizer) | Strips the twelve patterns that make writing read as machine-generated |
 | [`batch`](skills/batch) | Runs one instruction across many targets with a manifest and a results table |
+
+## Which agent are you on?
+
+**Codex** is OpenAI's coding agent: the Codex app, or `codex` in a terminal.
+**Claude Code** is Anthropic's: the Code tab of the Claude desktop app, the
+`claude` command in a terminal, or the VS Code extension. If you are not sure,
+ask the agent itself. It knows what it is, and [`SETUP.md`](SETUP.md) tells it
+what to do in either case.
 
 ## Install
 
@@ -29,13 +38,14 @@ Paste this to your agent:
 Set me up from https://github.com/Your-AI-Dept/yaid-hackathon
 ```
 
-It reads [`SETUP.md`](SETUP.md), installs the six skills, drops the briefing
-files into your working folder, and tells you what it did. Restart Codex
-afterwards so the new skills appear.
+It reads [`SETUP.md`](SETUP.md), works out whether it is Codex or Claude Code,
+installs the six skills in the right place, drops the briefing files into your
+working folder, and tells you what it did. Restart the agent afterwards so the
+new skills appear.
 
 Nothing to install first. No GitHub account, no git, no terminal.
 
-### The explicit way
+### Codex, the explicit way
 
 Ask Codex to install just the skills. Its built-in `skill-installer` reads
 straight from this repo:
@@ -59,22 +69,39 @@ Drop the `-R yaid-hackathon/skills/*` for a single skill, for example
 
 Verify with `ls ~/.codex/skills`. You should see the folders you copied.
 
-### Claude Code
+### Claude Code, the explicit way
 
-Same files, different directory:
+Claude Code has no single-skill installer, so copy the folders:
 
 ```bash
+git clone https://github.com/Your-AI-Dept/yaid-hackathon.git
 cp -R yaid-hackathon/skills/* ~/.claude/skills/
 ```
 
-Or per-project, into `.claude/skills/` at the repo root.
+Or per-project, into `.claude/skills/` at the repo root. Restart Claude Code,
+or run `/reload-plugins` in the session, and the skills appear as `/grill-me`,
+`/handoff` and so on.
 
-The four Matt Pocock skills are also available as a maintained Claude Code
-plugin, which is the better route if you want updates:
+If you would rather subscribe than copy, this repo is also a Claude Code
+plugin, and `claude plugin update yaid-hackathon` then brings in changes:
 
 ```bash
-claude plugins install mattpocock-skills
+claude plugin marketplace add Your-AI-Dept/yaid-hackathon
+claude plugin install yaid-hackathon@yaid
 ```
+
+Inside a session the same two steps are `/plugin marketplace add
+Your-AI-Dept/yaid-hackathon` and `/plugin install yaid-hackathon@yaid`. Plugin
+skills are namespaced, so call them as `/yaid-hackathon:grill-me`. Pick the
+copy route or the plugin route, not both, or you will have every skill twice.
+
+The Cowork tab of the desktop app and claude.ai on the web take their skills
+from your claude.ai account settings, not from `~/.claude/skills`, so add them
+there instead.
+
+The four Matt Pocock skills are also available as his own maintained plugin,
+`claude plugins install mattpocock-skills`. His `grilling` has no question
+cap.
 
 ### Other agents
 
@@ -137,19 +164,28 @@ The point is that a batch of forty cannot quietly become a batch of thirty-one.
 
 ## Running an event with these
 
-[`hackathon/`](hackathon) holds two files for a facilitated session where the
-people building are not developers:
+[`hackathon/`](hackathon) holds the briefing files for a facilitated session
+where the people building are not developers. They are written to work for any
+team and any event. The only event-specific part is the Event details block at
+the top of the brief, which you fill in.
 
-- [`AGENTS.md`](hackathon/AGENTS.md) sets the agent's brief. Who it is working
-  with, what to assume they know, how long it has, what to produce. Codex reads
-  it automatically at the start of every session, so nobody has to remember to
-  explain the context.
+- [`AGENTS.md`](hackathon/AGENTS.md) is the agent's brief: who it is working
+  with, what to assume they know, how to split the time, what to produce, and
+  what to leave behind. Codex reads it automatically at the start of every
+  session.
+- [`CLAUDE.md`](hackathon/CLAUDE.md) is the same brief for Claude Code, which
+  reads `CLAUDE.md` rather than `AGENTS.md`. It imports `AGENTS.md`, so there is
+  one brief to edit, not two.
 - [`CONTEXT.md`](hackathon/CONTEXT.md) is the vocabulary of the participants'
-  world, so the agent uses their words from the first message. `wait-what` reads
-  this file directly.
+  world, so the agent uses their words from the first message. It is a template
+  to fill in before the session, from a survey or a short call with the team.
+  `wait-what` reads it directly.
+  [`examples/CONTEXT-live-events.md`](hackathon/examples/CONTEXT-live-events.md)
+  shows a filled-in one.
 
-Copy both into the folder each participant works in. They are written for a
-specific event and are meant to be rewritten for yours.
+Copy all three files into the folder each participant works in. Fill in the
+Event details block and `CONTEXT.md` first; the brief tells the agent to ask
+rather than guess if it finds a placeholder left in.
 
 ## Credits and licensing
 
@@ -161,6 +197,7 @@ His repo is the canonical source and gets changes first.
 `humanizer` is by Anthropic, from the `anthropic-skills` plugin, bundled
 verbatim.
 
-`batch` is original work by [Your AI Dept.](https://youraidept.com), MIT.
+`batch`, the hackathon briefing files, and the plugin manifests are original
+work by [Your AI Dept.](https://youraidept.com), MIT.
 
 Full detail in [NOTICE](NOTICE).

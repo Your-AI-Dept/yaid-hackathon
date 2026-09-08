@@ -36,3 +36,11 @@ Copyright (c) 2026 Your AI Dept.
 License: MIT (see LICENSE)
 
 Original work. Not a copy of any existing `batch` skill.
+
+## Everything else
+
+Copyright (c) 2026 Your AI Dept.
+License: MIT (see LICENSE)
+
+The hackathon briefing files under `hackathon/`, the Claude Code plugin
+manifests under `.claude-plugin/`, and the documentation are original work.

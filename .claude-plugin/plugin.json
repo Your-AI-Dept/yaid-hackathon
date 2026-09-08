@@ -1,0 +1,28 @@
+{
+  "name": "yaid-hackathon",
+  "version": "1.0.0",
+  "description": "Six agent skills for hackathons with non-developers: grill-me, grilling, handoff, wait-what, humanizer and batch.",
+  "author": {
+    "name": "Your AI Dept.",
+    "url": "https://youraidept.com"
+  },
+  "homepage": "https://github.com/Your-AI-Dept/yaid-hackathon",
+  "repository": "https://github.com/Your-AI-Dept/yaid-hackathon",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "hackathon",
+    "grilling",
+    "handoff",
+    "humanizer",
+    "batch"
+  ],
+  "skills": [
+    "./skills/batch",
+    "./skills/grill-me",
+    "./skills/grilling",
+    "./skills/handoff",
+    "./skills/humanizer",
+    "./skills/wait-what"
+  ]
+}

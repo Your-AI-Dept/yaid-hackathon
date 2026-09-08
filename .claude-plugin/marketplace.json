@@ -1,0 +1,26 @@
+{
+  "name": "yaid",
+  "owner": {
+    "name": "Your AI Dept.",
+    "url": "https://youraidept.com"
+  },
+  "plugins": [
+    {
+      "name": "yaid-hackathon",
+      "source": "./",
+      "description": "Six agent skills for hackathons with non-developers: grill-me, grilling, handoff, wait-what, humanizer and batch.",
+      "category": "productivity",
+      "keywords": [
+        "skills",
+        "hackathon",
+        "grilling",
+        "handoff",
+        "humanizer",
+        "batch"
+      ]
+    }
+  ],
+  "metadata": {
+    "description": "Your AI Dept. skills for hackathons, as an installable Claude Code plugin."
+  }
+}
