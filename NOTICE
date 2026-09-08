@@ -9,8 +9,10 @@ Copyright (c) 2026 Matt Pocock
 Source: https://github.com/mattpocock/skills
 License: MIT (full text in LICENSE-mattpocock-skills)
 
-Bundled verbatim, no modifications. The upstream repo is the canonical version
-and gets updates first. Pull from there if you want to track changes.
+Bundled verbatim with one exception: `grilling/SKILL.md` adds a cap of twelve
+questions per session. That is a Your AI Dept. change and is not upstream. The
+upstream repo is the canonical version and gets updates first. Pull from there
+if you want to track changes, and re-apply the cap if you replace `grilling`.
 
 `grilling` is not in the original request list. It is here because `grill-me`
 is a one-line stub whose entire body is "Run a `/grilling` session." Without

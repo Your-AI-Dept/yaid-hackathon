@@ -93,9 +93,10 @@ their description. You can still invoke them directly.
 ### grill-me
 
 Run it when you have a plan you believe in. It maps your plan as a decision
-tree and works the tree in rounds, asking every question it can answer now,
-each with its recommended answer. It is not done until nothing is left silently
-assumed.
+tree and works the tree in rounds, asking the questions it can ask now, each
+with its recommended answer, up to twelve in a session. When it hits the cap it
+lists what it is assuming for anything it did not get to ask. It is not done
+until nothing is left silently assumed.
 
 Best used before you write code, not after.
 
@@ -153,8 +154,9 @@ specific event and are meant to be rewritten for yours.
 ## Credits and licensing
 
 `grill-me`, `grilling`, `handoff`, and `wait-what` are by
-[Matt Pocock](https://github.com/mattpocock/skills), MIT licensed, bundled
-verbatim. His repo is the canonical source and gets changes first.
+[Matt Pocock](https://github.com/mattpocock/skills), MIT licensed. Three are
+bundled verbatim; `grilling` carries one local change, the twelve-question cap.
+His repo is the canonical source and gets changes first.
 
 `humanizer` is by Anthropic, from the `anthropic-skills` plugin, bundled
 verbatim.
