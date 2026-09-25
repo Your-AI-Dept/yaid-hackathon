@@ -13,10 +13,10 @@ same files work in both agents; only the folder they go in differs.
 
 | Skill | What it does |
 |---|---|
-| [`grill-me`](skills/grill-me) | Starts a relentless interview that stress-tests a plan before you build it |
-| [`grilling`](skills/grilling) | The interview engine behind `grill-me`. Required for it to work |
+| [`grillme`](skills/grillme) | Starts a relentless interview that stress-tests a plan before you build it, twelve questions at most |
 | [`handoff`](skills/handoff) | Compacts the current session into a doc a fresh agent can pick up cold |
 | [`wait-what`](skills/wait-what) | "That last message did not land." Forces a re-pitch in plain language |
+| [`eli5`](skills/eli5) | "That went over my head." Explains the last answer again in everyday words |
 | [`humanizer`](skills/humanizer) | Strips the twelve patterns that make writing read as machine-generated |
 | [`batch`](skills/batch) | Runs one instruction across many targets with a manifest and a results table |
 
@@ -54,8 +54,7 @@ straight from this repo:
 install skills from Your-AI-Dept/yaid-hackathon
 ```
 
-Pick the ones you want when it asks. Take `grill-me` and `grilling` together or
-neither. Restart Codex afterwards.
+Pick the ones you want when it asks. Restart Codex afterwards.
 
 To do it by hand instead:
 
@@ -79,7 +78,7 @@ cp -R yaid-hackathon/skills/* ~/.claude/skills/
 ```
 
 Or per-project, into `.claude/skills/` at the repo root. Restart Claude Code,
-or run `/reload-plugins` in the session, and the skills appear as `/grill-me`,
+or run `/reload-plugins` in the session, and the skills appear as `/grillme`,
 `/handoff` and so on.
 
 If you would rather subscribe than copy, this repo is also a Claude Code
@@ -92,16 +91,17 @@ claude plugin install yaid-hackathon@yaid
 
 Inside a session the same two steps are `/plugin marketplace add
 Your-AI-Dept/yaid-hackathon` and `/plugin install yaid-hackathon@yaid`. Plugin
-skills are namespaced, so call them as `/yaid-hackathon:grill-me`. Pick the
+skills are namespaced, so call them as `/yaid-hackathon:grillme`. Pick the
 copy route or the plugin route, not both, or you will have every skill twice.
 
 The Cowork tab of the desktop app and claude.ai on the web take their skills
 from your claude.ai account settings, not from `~/.claude/skills`, so add them
 there instead.
 
-The four Matt Pocock skills are also available as his own maintained plugin,
-`claude plugins install mattpocock-skills`. His `grilling` has no question
-cap.
+`grillme`, `handoff` and `wait-what` started as Matt Pocock's skills, which are
+also available as his own maintained plugin, `claude plugins install
+mattpocock-skills`. His interview is split across `grill-me` and `grilling` and
+has no question cap.
 
 ### Other agents
 
@@ -111,27 +111,30 @@ harmless everywhere else.
 
 ## Using them
 
-`grill-me`, `handoff`, and `wait-what` are set to `disable-model-invocation`,
-so the agent will not reach for them on its own. Call them by name.
+`wait-what` is set to `disable-model-invocation`, so the agent will not reach
+for it on its own. Call it by name, as the first thing in your message.
 
-`grilling`, `humanizer`, and `batch` trigger on their own when the work matches
-their description. You can still invoke them directly.
+The other five trigger on their own when what you ask matches their
+description, so "grill me on this", "ELI5 that", or "run /grillme" at the end
+of a longer message all work. You can still invoke them directly.
 
-### grill-me
+### grillme
 
 Run it when you have a plan you believe in. It maps your plan as a decision
-tree and works the tree in rounds, asking the questions it can ask now, each
-with its recommended answer, up to twelve in a session. When it hits the cap it
-lists what it is assuming for anything it did not get to ask. It is not done
-until nothing is left silently assumed.
+tree and works the tree in rounds, asking the questions it can ask now, in
+plain English, each with its recommended answer, up to twelve in a session.
+When it hits the cap it lists what it is assuming for anything it did not get
+to ask. It is not done until nothing is left silently assumed, and it closes
+with the agreed plan in a few sentences before anything gets built.
 
-Best used before you write code, not after.
+Best used before you build anything, not after.
 
 ### handoff
 
 Run it when a session is getting long or you are about to switch machines. It
-writes a handoff doc to your OS temp directory, references existing artifacts
-rather than restating them, and redacts secrets.
+writes `HANDOFF.md` into the folder you are working in, references existing
+artifacts rather than restating them, redacts secrets, and ends by telling you
+what to type in a fresh session to pick the work back up.
 
 Give it an argument to bias the doc: `handoff, next session is about the
 migration rollback`.
@@ -143,6 +146,16 @@ in Simplified Technical English, using your project's own vocabulary.
 
 It reads `CONTEXT.md` from your repo root for that vocabulary. Without one it
 still works, just with less of your language in it. Worth writing.
+
+### eli5
+
+For when an answer goes over your head. It explains the last message again in
+short sentences and everyday words, with one comparison from everyday life if
+that helps, and ends with the one thing it needs from you next. It keeps
+talking that way until you ask for more detail.
+
+`wait-what` does a similar job for people who keep a `CONTEXT.md`. `eli5` needs
+nothing set up.
 
 ### humanizer
 
@@ -189,15 +202,18 @@ rather than guess if it finds a placeholder left in.
 
 ## Credits and licensing
 
-`grill-me`, `grilling`, `handoff`, and `wait-what` are by
-[Matt Pocock](https://github.com/mattpocock/skills), MIT licensed. Three are
-bundled verbatim; `grilling` carries one local change, the twelve-question cap.
-His repo is the canonical source and gets changes first.
+`grillme`, `handoff`, and `wait-what` come from
+[Matt Pocock's skills](https://github.com/mattpocock/skills), MIT licensed.
+`wait-what` is bundled verbatim. `grillme` joins his `grill-me` and `grilling`
+into one file under a new name, with a twelve-question cap, plain-English
+questions and a closing summary. `handoff` saves into your working folder
+instead of the OS temp directory. His repo is the canonical source and gets
+changes first.
 
 `humanizer` is by Anthropic, from the `anthropic-skills` plugin, bundled
 verbatim.
 
-`batch`, the hackathon briefing files, and the plugin manifests are original
-work by [Your AI Dept.](https://youraidept.com), MIT.
+`eli5`, `batch`, the hackathon briefing files, and the plugin manifests are
+original work by [Your AI Dept.](https://youraidept.com), MIT.
 
 Full detail in [NOTICE](NOTICE).

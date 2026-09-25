@@ -8,13 +8,14 @@
     {
       "name": "yaid-hackathon",
       "source": "./",
-      "description": "Six agent skills for hackathons with non-developers: grill-me, grilling, handoff, wait-what, humanizer and batch.",
+      "description": "Six agent skills for hackathons with non-developers: grillme, handoff, wait-what, eli5, humanizer and batch.",
       "category": "productivity",
       "keywords": [
         "skills",
         "hackathon",
-        "grilling",
+        "grillme",
         "handoff",
+        "eli5",
         "humanizer",
         "batch"
       ]

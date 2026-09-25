@@ -31,22 +31,23 @@ Create the directory if it isn't there.
 ## Step 2. Install the six skills
 
 Copy each directory inside `skills/` into the skills directory from Step 1, so
-that you end up with `<skills directory>/grill-me/SKILL.md` and the same for
+that you end up with `<skills directory>/grillme/SKILL.md` and the same for
 the other five.
 
 Use your own skill installer if you have one. On Codex that is:
 
 ```
-scripts/install-skill-from-github.py --repo Your-AI-Dept/yaid-hackathon --path skills/batch skills/grill-me skills/grilling skills/handoff skills/humanizer skills/wait-what
+scripts/install-skill-from-github.py --repo Your-AI-Dept/yaid-hackathon --path skills/batch skills/eli5 skills/grillme skills/handoff skills/humanizer skills/wait-what
 ```
 
 Claude Code has no built-in skill installer, so download this repository to a
 temporary folder (git clone, or the ZIP from GitHub) and copy the six folders
 across.
 
-Install all six. `grill-me` and `grilling` are a pair and `grill-me` does
-nothing without `grilling`, so never install one of those without the other.
-If a skill of the same name already exists, ask the user before replacing it.
+Install all six. If a skill of the same name already exists, ask the user
+before replacing it. `grillme` replaces the `grill-me` and `grilling` that
+earlier versions of this repository installed; if you find those, ask the user
+whether to remove them.
 
 ## Step 3. Place the briefing files
 
