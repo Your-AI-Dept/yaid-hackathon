@@ -22,6 +22,6 @@ SOFTWARE.
 
 ---
 
-This license covers the skills authored by Your AI Dept. (`skills/batch`) and
-the repository's own documentation and tooling. Third-party skills bundled here
-keep their original licenses and authorship. See NOTICE.
+This license covers the skills authored by Your AI Dept. (`skills/batch` and
+`skills/eli5`) and the repository's own documentation and tooling. Third-party
+skills bundled here keep their original licenses and authorship. See NOTICE.

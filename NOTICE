@@ -3,20 +3,30 @@
 This repository bundles skills from more than one author. Attribution and
 licensing for each, so you know exactly what you are downloading.
 
-## skills/grill-me, skills/grilling, skills/handoff, skills/wait-what
+## skills/grillme, skills/handoff, skills/wait-what
 
 Copyright (c) 2026 Matt Pocock
 Source: https://github.com/mattpocock/skills
 License: MIT (full text in LICENSE-mattpocock-skills)
 
-Bundled verbatim with one exception: `grilling/SKILL.md` adds a cap of twelve
-questions per session. That is a Your AI Dept. change and is not upstream. The
-upstream repo is the canonical version and gets updates first. Pull from there
-if you want to track changes, and re-apply the cap if you replace `grilling`.
+`wait-what` is bundled verbatim.
 
-`grilling` is not in the original request list. It is here because `grill-me`
-is a one-line stub whose entire body is "Run a `/grilling` session." Without
-`grilling` alongside it, `grill-me` does nothing.
+`grillme` is adapted from his `grill-me` and `grilling`. Upstream, `grill-me` is
+a one-line stub that hands off to `grilling`, so the two only work as a pair.
+Here they are one self-contained file, renamed to match the `/grillme` that
+Your AI Dept.'s handouts teach. The Your AI Dept. changes, none of them
+upstream: a cap of twelve questions per session, questions asked in plain
+English, and a closing summary of the agreed plan.
+
+`handoff` is adapted from his `handoff`. The Your AI Dept. changes: it saves
+`HANDOFF.md` in the working folder instead of the OS temp directory, and it ends
+by telling the user what to type in a fresh session.
+
+Upstream sets both to `disable-model-invocation`. Here neither is, so a request
+made mid-message ("then run /grillme") still reaches them.
+
+The upstream repo is the canonical version and gets updates first. Pull from
+there if you want to track changes, and re-apply the changes above if you do.
 
 ## skills/humanizer
 
@@ -30,12 +40,14 @@ Anthropic has not attached an explicit open-source license to this skill file.
 It is redistributed here as provided. If you plan to build on it commercially,
 check with Anthropic first.
 
-## skills/batch
+## skills/batch, skills/eli5
 
 Copyright (c) 2026 Your AI Dept.
 License: MIT (see LICENSE)
 
-Original work. Not a copy of any existing `batch` skill.
+Original work. `batch` is not a copy of any existing `batch` skill. `eli5`
+borrows the shape of Matt Pocock's `wait-what`, a short prompt in the user's own
+voice, but its text is new.
 
 ## Everything else
 
