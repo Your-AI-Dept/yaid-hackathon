@@ -3,20 +3,20 @@
 This repository bundles skills from more than one author. Attribution and
 licensing for each, so you know exactly what you are downloading.
 
-## skills/grillme, skills/handoff, skills/wait-what
+## skills/grillme, skills/handoff
 
 Copyright (c) 2026 Matt Pocock
 Source: https://github.com/mattpocock/skills
 License: MIT (full text in LICENSE-mattpocock-skills)
 
-`wait-what` is bundled verbatim.
-
 `grillme` is adapted from his `grill-me` and `grilling`. Upstream, `grill-me` is
 a one-line stub that hands off to `grilling`, so the two only work as a pair.
 Here they are one self-contained file, renamed to match the `/grillme` that
 Your AI Dept.'s handouts teach. The Your AI Dept. changes, none of them
-upstream: a cap of twelve questions per session, questions asked in plain
-English, and a closing summary of the agreed plan.
+upstream: a ceiling of twelve questions per session, questions asked only where
+the agent is genuinely unsure (everything else listed as an assumption),
+questions asked through the agent's multiple-choice tool where it has one,
+questions asked in plain English, and a closing summary of the agreed plan.
 
 `handoff` is adapted from his `handoff`. The Your AI Dept. changes: it saves
 `HANDOFF.md` in the working folder instead of the OS temp directory, and it ends
@@ -28,26 +28,19 @@ made mid-message ("then run /grillme") still reaches them.
 The upstream repo is the canonical version and gets updates first. Pull from
 there if you want to track changes, and re-apply the changes above if you do.
 
-## skills/humanizer
-
-Copyright (c) 2026 Anthropic
-Source: the `anthropic-skills` plugin distributed with Claude
-
-Bundled verbatim, no modifications, other than the addition of
-`agents/openai.yaml` so Codex can display it.
-
-Anthropic has not attached an explicit open-source license to this skill file.
-It is redistributed here as provided. If you plan to build on it commercially,
-check with Anthropic first.
-
-## skills/batch, skills/eli5
+## skills/eli5, skills/writelikeme
 
 Copyright (c) 2026 Your AI Dept.
 License: MIT (see LICENSE)
 
-Original work. `batch` is not a copy of any existing `batch` skill. `eli5`
-borrows the shape of Matt Pocock's `wait-what`, a short prompt in the user's own
-voice, but its text is new.
+Original work. `eli5` borrows the shape of Matt Pocock's `wait-what`, a short
+prompt in the user's own voice, but its text is new. The "Avoid sounding like
+AI" list in `writelikeme`'s `myvoice` template is written fresh, drawing on the
+patterns in Anthropic's `humanizer` skill (from the `anthropic-skills` plugin),
+which earlier versions of this repository bundled verbatim.
+
+Earlier versions also bundled `batch` (Your AI Dept.), `humanizer` (Anthropic)
+and `wait-what` (Matt Pocock). Version 3.0.0 retires all three.
 
 ## Everything else
 

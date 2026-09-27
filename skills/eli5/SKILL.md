@@ -9,6 +9,6 @@ That went over my head. Explain it again like I'm five:
 - Use short sentences and everyday words. No jargon, acronyms, code or file paths. If a technical word can't be avoided, say what it means in a few words the first time you use it.
 - If it helps, use one comparison from everyday life or from my line of work.
 - Keep it under 150 words.
-- End with the one thing you need from me next, if there is one.
+- End with the one thing you need from me next, if there is one. If it's a choice, ask it with your multiple-choice question tool if you have one (AskUserQuestion in Claude Code), with the option you'd pick first.
 
 I'm new to this, not a child, so plain words, not baby talk. Keep explaining at this level for the rest of our conversation unless I ask for more detail.
