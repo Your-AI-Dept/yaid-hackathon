@@ -125,13 +125,14 @@ Tell them what changed.
 Show the style summary: the rules as saved, in plain English, short enough to
 read in a minute. Ask if anything is off, and fix it in the file.
 
-Then tell them, in two or three sentences:
+Then tell them, in two or three sentences. Don't mention `myvoice` by name:
+the only command they need to know is /writelikeme.
 
-- From now on, when they ask for a draft (an email, a reply, a post), it comes
-  out in their voice with nothing special to type. Typing /myvoice with some
-  text rewrites that text in their voice.
+- From now on, when they ask for a draft (an email, a reply, a post), or paste
+  something and ask for it in their words, it comes out in their voice. Nothing
+  special to type.
 - If a draft sounds wrong, they just say so, and it will offer to remember the
-  fix.
+  fix. To sharpen it further, they run /writelikeme again.
 - It may need a new chat, or a restart, before it switches on.
 
 ## The myvoice template

@@ -16,7 +16,7 @@ same files work in both agents; only the folder they go in differs.
 | [`grillme`](skills/grillme) | Stress-tests a plan before you build it, asking only what it can't decide itself, twelve questions at most |
 | [`handoff`](skills/handoff) | Compacts the current session into a doc a fresh agent can pick up cold |
 | [`eli5`](skills/eli5) | "That went over my head." Explains the last answer again in everyday words |
-| [`writelikeme`](skills/writelikeme) | A 15-minute walkthrough that learns how you write and builds you a personal `/myvoice` |
+| [`writelikeme`](skills/writelikeme) | A 15-minute walkthrough that learns how you write, so every draft after it sounds like you |
 
 ## Which agent are you on?
 
@@ -151,16 +151,19 @@ talking that way until you ask for more detail.
 Run it once. In about 15 minutes it reads emails you sent (with your OK),
 takes anything else you have written, tells you what it noticed, and asks up
 to five questions about the rest, starting with which of your quirks to keep.
-Then it builds you a personal skill, `/myvoice`, and shows you the style rules
-it saved.
+Then it saves your style and shows you the rules it saved.
 
 After that, any draft you ask for comes out in your voice with nothing special
 to type. When a draft sounds wrong, say so and it offers to remember the fix.
-Run `/writelikeme` again later to sharpen it.
+Run `/writelikeme` again later to sharpen it. It is the only command to learn.
+
+Under the hood, your style is saved as a small personal skill called `myvoice`
+in your own skills folder, so updates to this repo never overwrite it. Claude
+or Codex switches it on by itself whenever you ask for a draft.
 
 It never keeps whole emails: just the style rules and a few short snippets you
-approve, with names and numbers taken out. `/myvoice` also carries a short
-list of the habits that make writing sound machine-made, so drafts avoid them
+approve, with names and numbers taken out. Your saved style also carries a
+short list of the habits that make writing sound machine-made, so drafts avoid them
 unless you write that way yourself.
 
 ## Running an event with these
