@@ -187,10 +187,10 @@ Copy all three files into the folder each participant works in. Fill in the
 Event details block and `CONTEXT.md` first; the brief tells the agent to ask
 rather than guess if it finds a placeholder left in.
 
-`writelikeme` makes a good 15-minute warm-up at the start. By default the brief
-keeps the agent out of live email accounts, so people paste in or export a few
-emails they sent. If the Data line allows email access, it reads their sent
-mail directly.
+`writelikeme` makes a good 15-minute warm-up at the start. It asks people to
+connect their email so it can read what they sent; where IT blocks that, they
+paste in or export a few emails instead. The brief allows email by default. To
+rule it out for an event, say so in the Data line.
 
 ## Credits and licensing
 

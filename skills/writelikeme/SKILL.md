@@ -33,9 +33,8 @@ you will sharpen it rather than start over.
 
 ## Step 2. Read emails they sent
 
-**If an event brief is in this folder** (`AGENTS.md` or `CLAUDE.md`), check its
-Data line first. If it rules out logging into email accounts, which it does
-unless the organiser changed it, skip to the fallback below.
+**If an event brief is in this folder** (`AGENTS.md` or `CLAUDE.md`) and its
+Data line rules out email, skip to the fallback below.
 
 **If you can see a tool that reads their email** (Gmail, Outlook, Microsoft
 365), ask once for the go-ahead, then read about 40 of the most recent emails
