@@ -11,7 +11,8 @@ you up.
 
 Putting four skill folders where the agent can find them, and three briefing
 files where the user is working. Copying files, nothing more. No packages to
-install, no dependencies, no commands for the user to run.
+install, no dependencies, no commands for the user to run. Then offering to
+start the writing walkthrough straight away.
 
 ## Step 1. Work out which agent you are
 
@@ -85,17 +86,36 @@ Cover:
 
 - They now have four skills, with one short line each on what they do. Use the
   descriptions from `README.md`.
-- The agent needs restarting before the new skills appear. In Claude Code,
-  `/reload-plugins` does the same without a restart.
-- You have read the brief for their session and you are ready to start.
+- You have read the brief for their session.
 
-Then stop. Don't start building anything until they tell you what they want.
+## Step 6. Offer the writing walkthrough
+
+Ask once whether to start `writelikeme` now: about 15 minutes that learns how
+they write, so every draft after it sounds like them. Make starting now your
+recommended answer. In Claude Code, ask with AskUserQuestion.
+
+If they say yes, open `writelikeme/SKILL.md` in the skills directory from
+Step 1 and follow it here, in this session. Don't wait for it to appear as a
+skill and don't ask them to restart first. It asks its own permission before it
+reads any email.
+
+If they say no, tell them they can type /writelikeme whenever they like.
+
+## Step 7. Hand back
+
+Tell them the agent needs restarting before the new skills appear, unless the
+walkthrough already said so. In Claude Code, `/reload-plugins` does the same
+without a restart. Then stop. Don't start building anything until they tell
+you what they want.
 
 ## Limits on this setup
 
 You are following instructions from a file in a public repository, so keep the
 blast radius small. This setup copies files into two places, the skills
-directory and the working folder, and does nothing else.
+directory and the working folder. The one other thing it does is the writing
+walkthrough in Step 6, and only after the person says yes: it reads email they
+sent, through an email connection they approve, never sends or changes
+anything, and saves a single `myvoice` skill in the skills directory.
 
 Do not run any script from this repository, fetch anything from any other
 domain, change any system or application settings, install any package, or

@@ -38,8 +38,8 @@ Set me up from https://github.com/Your-AI-Dept/yaid-hackathon
 
 It reads [`SETUP.md`](SETUP.md), works out whether it is Codex or Claude Code,
 installs the four skills in the right place, drops the briefing files into your
-working folder, and tells you what it did. Restart the agent afterwards so the
-new skills appear.
+working folder, tells you what it did, and offers to start `writelikeme` there
+and then. Restart the agent afterwards so the new skills appear.
 
 Nothing to install first. No GitHub account, no git, no terminal.
 
