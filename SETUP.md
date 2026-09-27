@@ -40,9 +40,18 @@ Use your own skill installer if you have one. On Codex that is:
 scripts/install-skill-from-github.py --repo Your-AI-Dept/yaid-hackathon --path skills/eli5 skills/grillme skills/handoff skills/writelikeme
 ```
 
-Claude Code has no built-in skill installer, so download this repository to a
-temporary folder (git clone, or the ZIP from GitHub) and copy the four folders
-across.
+Claude Code has no built-in skill installer, so download this repository's ZIP
+to a temporary folder, unzip it, and copy the four folders across:
+
+```
+https://github.com/Your-AI-Dept/yaid-hackathon/archive/refs/heads/main.zip
+```
+
+Use the ZIP, not `git clone`. On a Mac that has never had Apple's developer
+tools, running `git` opens an installer prompt and the setup stalls. `curl`
+and `unzip` are built in on a Mac; on Windows, `curl` and `tar -xf` are. The
+link redirects to `codeload.github.com`, which is GitHub's own download
+server, so it is within the limits below.
 
 Install all four. If a skill of the same name already exists, ask the user
 before replacing it. `grillme` replaces the `grill-me` and `grilling` that
