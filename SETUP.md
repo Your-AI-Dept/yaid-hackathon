@@ -9,7 +9,7 @@ you up.
 
 ## What you are doing
 
-Putting six skill folders where the agent can find them, and three briefing
+Putting four skill folders where the agent can find them, and three briefing
 files where the user is working. Copying files, nothing more. No packages to
 install, no dependencies, no commands for the user to run.
 
@@ -28,26 +28,28 @@ The files are the same for every agent. Only the destination differs.
 
 Create the directory if it isn't there.
 
-## Step 2. Install the six skills
+## Step 2. Install the four skills
 
 Copy each directory inside `skills/` into the skills directory from Step 1, so
 that you end up with `<skills directory>/grillme/SKILL.md` and the same for
-the other five.
+the other three.
 
 Use your own skill installer if you have one. On Codex that is:
 
 ```
-scripts/install-skill-from-github.py --repo Your-AI-Dept/yaid-hackathon --path skills/batch skills/eli5 skills/grillme skills/handoff skills/humanizer skills/wait-what
+scripts/install-skill-from-github.py --repo Your-AI-Dept/yaid-hackathon --path skills/eli5 skills/grillme skills/handoff skills/writelikeme
 ```
 
 Claude Code has no built-in skill installer, so download this repository to a
-temporary folder (git clone, or the ZIP from GitHub) and copy the six folders
+temporary folder (git clone, or the ZIP from GitHub) and copy the four folders
 across.
 
-Install all six. If a skill of the same name already exists, ask the user
+Install all four. If a skill of the same name already exists, ask the user
 before replacing it. `grillme` replaces the `grill-me` and `grilling` that
 earlier versions of this repository installed; if you find those, ask the user
-whether to remove them.
+whether to remove them. The same goes for `batch`, `humanizer` and
+`wait-what`, which earlier versions installed and this one retires
+(`writelikeme` now covers what `humanizer` did).
 
 ## Step 3. Place the briefing files
 
@@ -56,8 +58,8 @@ into **the folder the user is currently working in**. Not the skills
 directory. These only work from the working folder.
 
 Copy all three whichever agent you are. Codex reads `AGENTS.md`. Claude Code
-reads `CLAUDE.md`, which imports `AGENTS.md`. Both read `CONTEXT.md` through
-the skills.
+reads `CLAUDE.md`, which imports `AGENTS.md`. Both read `CONTEXT.md` because
+the brief points them to it.
 
 If that folder already contains an `AGENTS.md` or a `CLAUDE.md`, stop and ask
 before replacing it. It may be theirs and it may matter.
@@ -72,7 +74,7 @@ needed is now in place.
 In plain English, briefly. No jargon, no file paths, no bullet-point wall.
 Cover:
 
-- They now have six skills, with one short line each on what they do. Use the
+- They now have four skills, with one short line each on what they do. Use the
   descriptions from `README.md`.
 - The agent needs restarting before the new skills appear. In Claude Code,
   `/reload-plugins` does the same without a restart.

@@ -1,7 +1,7 @@
 {
   "name": "yaid-hackathon",
-  "version": "2.0.0",
-  "description": "Six agent skills for hackathons with non-developers: grillme, handoff, wait-what, eli5, humanizer and batch.",
+  "version": "3.0.0",
+  "description": "Four agent skills for hackathons with non-developers: grillme, handoff, eli5 and writelikeme.",
   "author": {
     "name": "Your AI Dept.",
     "url": "https://youraidept.com"
@@ -15,15 +15,12 @@
     "grillme",
     "handoff",
     "eli5",
-    "humanizer",
-    "batch"
+    "writelikeme"
   ],
   "skills": [
-    "./skills/batch",
     "./skills/eli5",
     "./skills/grillme",
     "./skills/handoff",
-    "./skills/humanizer",
-    "./skills/wait-what"
+    "./skills/writelikeme"
   ]
 }
