@@ -8,11 +8,12 @@
     {
       "name": "yaid-hackathon",
       "source": "./",
-      "description": "Four agent skills for hackathons with non-developers: grillme, handoff, eli5 and writelikeme.",
+      "description": "Five agent skills for hackathons with non-developers: walk-me-through, grillme, handoff, eli5 and writelikeme.",
       "category": "productivity",
       "keywords": [
         "skills",
         "hackathon",
+        "walk-me-through",
         "grillme",
         "handoff",
         "eli5",

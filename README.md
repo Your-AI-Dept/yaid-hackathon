@@ -4,15 +4,19 @@
 > read [`SETUP.md`](SETUP.md) and follow it. It is written for you, it takes
 > about a minute, and it needs nothing from the person you are working with.
 
-Four agent skills for Codex and Claude Code. Three sharpen how you and the
-agent talk to each other, and one teaches the agent to write like you.
+Five agent skills. One coaches people who are new to building through a
+hackathon in Claude Code. Three sharpen how you and the agent talk to each
+other, and one teaches the agent to write like you; those four work in Codex
+too.
 
 They are plain markdown. No install step beyond copying a folder, no runtime,
 no lock-in. Read them, change them, delete the parts you disagree with. The
-same files work in both agents; only the folder they go in differs.
+same files work in both agents; only the folder they go in differs. The
+exception is `walk-me-through`, which is for Claude Code only.
 
 | Skill | What it does |
 |---|---|
+| [`walk-me-through`](skills/walk-me-through) | A coach for people new to building: gets them unstuck when a popup, sign-in, connector, file or limit stops them, and can walk them through a whole build from their own use case. Claude Code only |
 | [`grillme`](skills/grillme) | Stress-tests a plan before you build it, asking only what it can't decide itself, twelve questions at most |
 | [`handoff`](skills/handoff) | Compacts the current session into a doc a fresh agent can pick up cold |
 | [`eli5`](skills/eli5) | "That went over my head." Explains the last answer again in everyday words |
@@ -37,9 +41,10 @@ Set me up from https://github.com/Your-AI-Dept/yaid-hackathon
 ```
 
 It reads [`SETUP.md`](SETUP.md), works out whether it is Codex or Claude Code,
-installs the four skills in the right place, drops the briefing files into your
-working folder, tells you what it did, and offers to start `writelikeme` there
-and then. Restart the agent afterwards so the new skills appear.
+installs the skills in the right place, sets up your working folder, tells you
+what it did, and offers to start `writelikeme` there and then. Afterwards,
+start a new session in that folder (Claude Code) or restart Codex so the new
+skills appear.
 
 Nothing to install first. No GitHub account, no git, no terminal.
 
@@ -52,7 +57,8 @@ straight from this repo:
 install skills from Your-AI-Dept/yaid-hackathon
 ```
 
-Pick the ones you want when it asks. Restart Codex afterwards.
+Pick the ones you want when it asks, leaving out `walk-me-through`, which is
+for Claude Code only. Restart Codex afterwards.
 
 To do it by hand instead:
 
@@ -77,7 +83,8 @@ cp -R yaid-hackathon/skills/* ~/.claude/skills/
 
 Or per-project, into `.claude/skills/` at the repo root. Restart Claude Code,
 or run `/reload-plugins` in the session, and the skills appear as `/grillme`,
-`/handoff` and so on.
+`/handoff` and so on. For `walk-me-through`, also copy `hackathon/CLAUDE.md`
+into the folder you build in, then start a new session there.
 
 If you would rather subscribe than copy, this repo is also a Claude Code
 plugin, and `claude plugin update yaid-hackathon` then brings in changes:
@@ -109,13 +116,27 @@ harmless everywhere else.
 
 ## Using them
 
-All four trigger on their own when what you ask matches their description, so
+All five trigger on their own when what you ask matches their description, so
 "grill me on this", "ELI5 that", or "run /grillme" at the end of a longer
 message all work. You can still invoke them directly.
 
 When one needs to ask you something, it asks only what it can't work out for
 itself. In Claude Code the question pops up as a multiple-choice box with its
 recommended answer first; in Codex it asks in the chat.
+
+### walk-me-through
+
+The coach for people who are new to building, in Claude Code. When something
+stops them, such as a permission popup, a sign-in, a connector that won't
+connect, a file it can't reach or a usage limit, it works out what kind of
+snag it is, tries the known fixes, finds another way in if access stays
+blocked, and sends them to a host only when nothing else is left. Then it gets
+out of the way.
+
+Start it with "Walk me through this:" and a use case, and it scopes a short
+plan (problem, solution, goal), builds it, checks it against an answer they
+already know is right, and leaves a plain-English take-home page in their
+folder.
 
 ### grillme
 
@@ -173,22 +194,23 @@ where the people building are not developers. They are written to work for any
 team and any event. The only event-specific part is the Event details block at
 the top of the brief, which you fill in.
 
-- [`AGENTS.md`](hackathon/AGENTS.md) is the agent's brief: who it is working
+- [`AGENTS.md`](hackathon/AGENTS.md) is the brief for Codex: who it is working
   with, what to assume they know, how to split the time, what to produce, and
   what to leave behind. Codex reads it automatically at the start of every
   session.
-- [`CLAUDE.md`](hackathon/CLAUDE.md) is the same brief for Claude Code, which
-  reads `CLAUDE.md` rather than `AGENTS.md`. It imports `AGENTS.md`, so there is
-  one brief to edit, not two.
+- [`CLAUDE.md`](hackathon/CLAUDE.md) is for Claude Code. Instead of the timed
+  brief, it sends each participant's snags, use cases and return visits to
+  `walk-me-through`, which coaches them one person at a time while the hosts
+  move around the room.
 - [`CONTEXT.md`](hackathon/CONTEXT.md) is the vocabulary of the participants'
   world, so the agent uses their words from the first message. It is a template
   to fill in before the session, from a survey or a short call with the team.
   [`examples/CONTEXT-live-events.md`](hackathon/examples/CONTEXT-live-events.md)
   shows a filled-in one.
 
-Copy all three files into the folder each participant works in. Fill in the
-Event details block and `CONTEXT.md` first; the brief tells the agent to ask
-rather than guess if it finds a placeholder left in.
+[`SETUP.md`](SETUP.md) puts the right files in each participant's folder. For
+Codex, fill in the Event details block and `CONTEXT.md` first; the brief tells
+the agent to ask rather than guess if it finds a placeholder left in.
 
 `writelikeme` makes a good 15-minute warm-up at the start. It asks people to
 connect their email so it can read what they sent; where IT blocks that, they
@@ -206,8 +228,8 @@ questions and a closing summary. `handoff` saves into your working folder
 instead of the OS temp directory. His repo is the canonical source and gets
 changes first.
 
-`eli5`, `writelikeme`, the hackathon briefing files, and the plugin manifests
-are original work by [Your AI Dept.](https://youraidept.com), MIT. The
+`walk-me-through`, `eli5`, `writelikeme`, the hackathon briefing files, and the
+plugin manifests are original work by [Your AI Dept.](https://youraidept.com), MIT. The
 "avoid sounding like AI" list that `writelikeme` puts into `/myvoice` is
 written fresh, drawing on the patterns in Anthropic's `humanizer`, which
 earlier versions of this repo bundled.

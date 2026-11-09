@@ -42,6 +42,17 @@ which earlier versions of this repository bundled verbatim.
 Earlier versions also bundled `batch` (Your AI Dept.), `humanizer` (Anthropic)
 and `wait-what` (Matt Pocock). Version 3.0.0 retires all three.
 
+## skills/walk-me-through
+
+Copyright (c) 2026 Your AI Dept.
+License: MIT (see LICENSE)
+
+Original work. It began as "Walk Me Through by YAID" 0.1.0, a guided-build
+skill handed off in October 2026, and was reworked as 0.2.0 into an in-room
+coach for Claude Code: it gets a stuck participant moving again and can walk
+them through a build from their own use case. Version 4.0.0 of this
+repository adds it, for Claude Code only.
+
 ## Everything else
 
 Copyright (c) 2026 Your AI Dept.
